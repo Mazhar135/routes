@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:routes/Screen_Two.dart';
 
 class HomeScreen extends StatefulWidget {
+  static const  String id = 'home_screen';
   const HomeScreen({super.key});
 
   @override
@@ -25,7 +26,10 @@ appBar: AppBar(
     onTap: (){
       Navigator.push(
           context,
-          MaterialPageRoute(builder: (context)=> ScreenTwo())
+          MaterialPageRoute(builder: (context)=> ScreenTwo(
+            name: 'Master Code',
+            num: 12,
+          ))
       );
     },
     child: Padding(

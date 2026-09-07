@@ -1,30 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:routes/screen_three.dart';
 
+class ScreenThree extends StatefulWidget {
+  static const String id = 'screen_three';
 
-class ScreenTwo extends StatefulWidget {
-
-  static const String id = 'Screen_Two';
-
-  final String name ;
-   final int num;
-  const ScreenTwo({super.key,
-    required this.name,
-    this.num = 2
+  final String name;
+  final int number;
+  const ScreenThree({super.key,
+   required this.name,
+    required this.number
   });
 
   @override
-  State<ScreenTwo> createState() => _ScreenTwoState();
+  State<ScreenThree> createState() => _ScreenThreeState();
 }
 
-class _ScreenTwoState extends State<ScreenTwo> {
+class _ScreenThreeState extends State<ScreenThree> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
         centerTitle: true,
-        title: Text(widget.name.toString() + " "+widget.num.toString()),
+        title: Text(widget.name),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -32,10 +29,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
         children: [
           InkWell(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (cotext)=> ScreenThree(
-                name: widget.name,
-                number: widget.num,
-              )));
+            Navigator.pop(context);
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -47,7 +41,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                   color: Colors.green,
                 ),
 
-                child: Center(child: Text('Screen 2')),
+                child: Center(child: Text('Screen 3')),
               ),
             ),
           )
