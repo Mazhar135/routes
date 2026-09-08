@@ -24,13 +24,20 @@ appBar: AppBar(
         children: [
   InkWell(
     onTap: (){
-      Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context)=> ScreenTwo(
-            name: 'Master Code',
-            num: 12,
-          ))
-      );
+      Navigator.pushNamed(context,
+          ScreenTwo.id,
+        arguments: {
+        'named' : 'Asif Taj',
+          'age' : '25'
+        }
+          );
+      // Navigator.push(
+      //     context,
+      //     MaterialPageRoute(builder: (context)=> ScreenTwo(
+      //       name: 'Master Code',
+      //       num: 12,
+      //     ))
+      // );
     },
     child: Padding(
       padding: const EdgeInsets.all(8.0),

@@ -6,11 +6,9 @@ class ScreenTwo extends StatefulWidget {
 
   static const String id = 'Screen_Two';
 
-  final String name ;
-   final int num;
+
   const ScreenTwo({super.key,
-    required this.name,
-    this.num = 2
+
   });
 
   @override
@@ -20,11 +18,13 @@ class ScreenTwo extends StatefulWidget {
 class _ScreenTwoState extends State<ScreenTwo> {
   @override
   Widget build(BuildContext context) {
+    final arguments = ModalRoute.of(context)?.settings.arguments as Map? ?? {};
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
         centerTitle: true,
-        title: Text(widget.name.toString() + " "+widget.num.toString()),
+        title: Text(arguments.toString())
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -33,8 +33,8 @@ class _ScreenTwoState extends State<ScreenTwo> {
           InkWell(
             onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (cotext)=> ScreenThree(
-                name: widget.name,
-                number: widget.num,
+                name: 'Master',
+                number: 25,
               )));
             },
             child: Padding(
