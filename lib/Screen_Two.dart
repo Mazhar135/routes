@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:routes/screen_three.dart';
-
+import 'package:routes/utils/routes_name.dart';
 
 class ScreenTwo extends StatefulWidget {
-
-  static const String id = 'Screen_Two';
-
-
-  const ScreenTwo({super.key,
-
-  });
+  const ScreenTwo({super.key});
 
   @override
   State<ScreenTwo> createState() => _ScreenTwoState();
@@ -24,36 +17,30 @@ class _ScreenTwoState extends State<ScreenTwo> {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         centerTitle: true,
-        title: Text(arguments.toString())
+        title: Text(arguments.toString()),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           InkWell(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (cotext)=> ScreenThree(
-                name: 'Master',
-                number: 25,
-              )));
+            onTap: () {
+              Navigator.pushNamed(context, RoutesName.ScreenThird);
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 height: 50,
                 width: double.infinity,
-
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.green,
                 ),
-
-                child: Center(child: Text('Screen 2')),
+                child: const Center(child: Text('Screen 2')),
               ),
             ),
           )
         ],
       ),
-
     );
   }
 }
