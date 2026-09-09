@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:routes/utils/routes_name.dart';
 
 class ScreenTwo extends StatefulWidget {
-  const ScreenTwo({super.key});
+  final dynamic data;
+
+  const ScreenTwo({super.key, required this.data});
 
   @override
   State<ScreenTwo> createState() => _ScreenTwoState();
@@ -11,13 +13,14 @@ class ScreenTwo extends StatefulWidget {
 class _ScreenTwoState extends State<ScreenTwo> {
   @override
   Widget build(BuildContext context) {
-    final arguments = ModalRoute.of(context)?.settings.arguments as Map? ?? {};
+    // Accessing data from widget.data
+    String nodeValue = widget.data is Map ? widget.data['Node'] ?? 'No Data' : 'Invalid Data';
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
         centerTitle: true,
-        title: Text(arguments.toString()),
+        title: Text(nodeValue),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -35,7 +38,12 @@ class _ScreenTwoState extends State<ScreenTwo> {
                 decoration: const BoxDecoration(
                   color: Colors.green,
                 ),
-                child: const Center(child: Text('Screen 2')),
+                child: const Center(
+                  child: Text(
+                    'Go to Screen 3',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                ),
               ),
             ),
           )
